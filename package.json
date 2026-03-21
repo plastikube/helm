@@ -1,0 +1,28 @@
+{
+  "name": "@plastikube/helm",
+  "version": "0.0.2",
+  "description": "the plastikube helm charts",
+  "keywords": [],
+  "engines": {
+    "node": ">=24.0.0"
+  },
+  "scripts": {
+    "test": "npx eslint src/",
+    "build": "npm run test && npx tsc",
+    "update-libraries": "npm install --save @plastikube/crds@latest"
+  },
+  "dependencies": {
+    "@plastikube/crds": "^0.0.2",
+    "@typescript-eslint/eslint-plugin": "^8.57.1",
+    "@typescript-eslint/parser": "^8.57.1",
+    "cdk8s": "^2.70.51",
+    "cdk8s-plus-33": "^2.4.38",
+    "constructs": "^10.5.1",
+    "typescript": "^5.9.3"
+  },
+  "devDependencies": {
+    "@eslint/eslintrc": "^3.3.5",
+    "@eslint/js": "^10.0.1",
+    "eslint": "^10.0.3"
+  }
+}
