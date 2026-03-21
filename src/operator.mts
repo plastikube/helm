@@ -2,7 +2,7 @@ import { Construct } from 'constructs';
 import * as cdk8splus from 'cdk8s-plus-33';
 import * as cdk8s from 'cdk8s';
 
-import { pk } from '@plastikube/crds';
+import { plastikube } from '@plastikube/crds';
 
 const outdir: string = '../dist/manifests/operator';
 const suffix: string = '-operator.yaml';
@@ -62,8 +62,7 @@ export class plastikubeOperator extends cdk8s.Chart {
       cdk8splus.ApiResource.SERVICES,
       cdk8splus.ApiResource.STATEFUL_SETS,
       cdk8splus.ApiResource.INGRESSES,
-      new pk.Gameserver.ApiResource,
-      new pk.GameserverLayer.ApiResource,
+      new plastikube.Model.ApiResource,
     );
 
     operatorRole.allowWatch(
@@ -81,8 +80,7 @@ export class plastikubeOperator extends cdk8s.Chart {
       cdk8splus.ApiResource.SERVICES,
       cdk8splus.ApiResource.STATEFUL_SETS,
       cdk8splus.ApiResource.INGRESSES,
-      new pk.Gameserver.ApiResource,
-      new pk.GameserverLayer.ApiResource,
+      new plastikube.Model.ApiResource,
     );
 
     operatorClusterRole.allowReadWrite(
@@ -100,8 +98,7 @@ export class plastikubeOperator extends cdk8s.Chart {
       cdk8splus.ApiResource.SERVICES,
       cdk8splus.ApiResource.STATEFUL_SETS,
       cdk8splus.ApiResource.INGRESSES,
-      new pk.Gameserver.ApiResource,
-      new pk.GameserverLayer.ApiResource,
+      new plastikube.Model.ApiResource,
     );
 
     operatorClusterRole.allowWatch(
@@ -119,8 +116,7 @@ export class plastikubeOperator extends cdk8s.Chart {
       cdk8splus.ApiResource.SERVICES,
       cdk8splus.ApiResource.STATEFUL_SETS,
       cdk8splus.ApiResource.INGRESSES,
-      new pk.Gameserver.ApiResource,
-      new pk.GameserverLayer.ApiResource,
+      new plastikube.Model.ApiResource,
     );
 
     operatorRole.allowRead(
