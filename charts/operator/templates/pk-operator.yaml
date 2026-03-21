@@ -1,0 +1,773 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  name: pk-operator-role
+  labels:
+    plastikube.dev/operator: "true"
+  {{- include "operator.labels" . | nindent 4 }}
+rules:
+- apiGroups:
+  - ""
+  resources:
+  - configmaps
+  verbs:
+  - get
+  - list
+  - watch
+  - create
+  - update
+  - patch
+  - delete
+  - deletecollection
+- apiGroups:
+  - batch
+  resources:
+  - cronjobs
+  verbs:
+  - get
+  - list
+  - watch
+  - create
+  - update
+  - patch
+  - delete
+  - deletecollection
+- apiGroups:
+  - apiextensions.k8s.io
+  resources:
+  - customresourcedefinitions
+  verbs:
+  - get
+  - list
+  - watch
+  - create
+  - update
+  - patch
+  - delete
+  - deletecollection
+- apiGroups:
+  - apps
+  resources:
+  - daemonsets
+  verbs:
+  - get
+  - list
+  - watch
+  - create
+  - update
+  - patch
+  - delete
+  - deletecollection
+- apiGroups:
+  - apps
+  resources:
+  - deployments
+  verbs:
+  - get
+  - list
+  - watch
+  - create
+  - update
+  - patch
+  - delete
+  - deletecollection
+- apiGroups:
+  - batch
+  resources:
+  - jobs
+  verbs:
+  - get
+  - list
+  - watch
+  - create
+  - update
+  - patch
+  - delete
+  - deletecollection
+- apiGroups:
+  - coordination.k8s.io
+  resources:
+  - leases
+  verbs:
+  - get
+  - list
+  - watch
+  - create
+  - update
+  - patch
+  - delete
+  - deletecollection
+- apiGroups:
+  - ""
+  resources:
+  - persistentvolumeclaims
+  verbs:
+  - get
+  - list
+  - watch
+  - create
+  - update
+  - patch
+  - delete
+  - deletecollection
+- apiGroups:
+  - ""
+  resources:
+  - pods
+  verbs:
+  - get
+  - list
+  - watch
+  - create
+  - update
+  - patch
+  - delete
+  - deletecollection
+- apiGroups:
+  - apps
+  resources:
+  - replicasets
+  verbs:
+  - get
+  - list
+  - watch
+  - create
+  - update
+  - patch
+  - delete
+  - deletecollection
+- apiGroups:
+  - ""
+  resources:
+  - secrets
+  verbs:
+  - get
+  - list
+  - watch
+  - create
+  - update
+  - patch
+  - delete
+  - deletecollection
+- apiGroups:
+  - ""
+  resources:
+  - services
+  verbs:
+  - get
+  - list
+  - watch
+  - create
+  - update
+  - patch
+  - delete
+  - deletecollection
+- apiGroups:
+  - apps
+  resources:
+  - statefulsets
+  verbs:
+  - get
+  - list
+  - watch
+  - create
+  - update
+  - patch
+  - delete
+  - deletecollection
+- apiGroups:
+  - networking.k8s.io
+  resources:
+  - ingresses
+  verbs:
+  - get
+  - list
+  - watch
+  - create
+  - update
+  - patch
+  - delete
+  - deletecollection
+- apiGroups:
+  - plastikube.dev
+  resources:
+  - models
+  verbs:
+  - get
+  - list
+  - watch
+  - create
+  - update
+  - patch
+  - delete
+  - deletecollection
+- apiGroups:
+  - ""
+  resources:
+  - configmaps
+  verbs:
+  - watch
+- apiGroups:
+  - batch
+  resources:
+  - cronjobs
+  verbs:
+  - watch
+- apiGroups:
+  - apiextensions.k8s.io
+  resources:
+  - customresourcedefinitions
+  verbs:
+  - watch
+- apiGroups:
+  - apps
+  resources:
+  - daemonsets
+  verbs:
+  - watch
+- apiGroups:
+  - apps
+  resources:
+  - deployments
+  verbs:
+  - watch
+- apiGroups:
+  - batch
+  resources:
+  - jobs
+  verbs:
+  - watch
+- apiGroups:
+  - coordination.k8s.io
+  resources:
+  - leases
+  verbs:
+  - watch
+- apiGroups:
+  - ""
+  resources:
+  - persistentvolumeclaims
+  verbs:
+  - watch
+- apiGroups:
+  - ""
+  resources:
+  - pods
+  verbs:
+  - watch
+- apiGroups:
+  - apps
+  resources:
+  - replicasets
+  verbs:
+  - watch
+- apiGroups:
+  - ""
+  resources:
+  - secrets
+  verbs:
+  - watch
+- apiGroups:
+  - ""
+  resources:
+  - services
+  verbs:
+  - watch
+- apiGroups:
+  - apps
+  resources:
+  - statefulsets
+  verbs:
+  - watch
+- apiGroups:
+  - networking.k8s.io
+  resources:
+  - ingresses
+  verbs:
+  - watch
+- apiGroups:
+  - plastikube.dev
+  resources:
+  - models
+  verbs:
+  - watch
+- apiGroups:
+  - networking.k8s.io
+  resources:
+  - ingressclasses
+  verbs:
+  - get
+  - list
+  - watch
+- apiGroups:
+  - ""
+  resources:
+  - namespaces
+  verbs:
+  - get
+  - list
+  - watch
+- apiGroups:
+  - ""
+  resources:
+  - nodes
+  verbs:
+  - get
+  - list
+  - watch
+- apiGroups:
+  - storage.k8s.io
+  resources:
+  - volumeattachments
+  verbs:
+  - get
+  - list
+  - watch
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: pk-operator-cluster-role
+  labels:
+    plastikube.dev/operator: "true"
+  {{- include "operator.labels" . | nindent 4 }}
+rules:
+- apiGroups:
+  - ""
+  resourceNames: []
+  resources:
+  - configmaps
+  verbs:
+  - get
+  - list
+  - watch
+  - create
+  - update
+  - patch
+  - delete
+  - deletecollection
+- apiGroups:
+  - batch
+  resourceNames: []
+  resources:
+  - cronjobs
+  verbs:
+  - get
+  - list
+  - watch
+  - create
+  - update
+  - patch
+  - delete
+  - deletecollection
+- apiGroups:
+  - apiextensions.k8s.io
+  resourceNames: []
+  resources:
+  - customresourcedefinitions
+  verbs:
+  - get
+  - list
+  - watch
+  - create
+  - update
+  - patch
+  - delete
+  - deletecollection
+- apiGroups:
+  - apps
+  resourceNames: []
+  resources:
+  - daemonsets
+  verbs:
+  - get
+  - list
+  - watch
+  - create
+  - update
+  - patch
+  - delete
+  - deletecollection
+- apiGroups:
+  - apps
+  resourceNames: []
+  resources:
+  - deployments
+  verbs:
+  - get
+  - list
+  - watch
+  - create
+  - update
+  - patch
+  - delete
+  - deletecollection
+- apiGroups:
+  - batch
+  resourceNames: []
+  resources:
+  - jobs
+  verbs:
+  - get
+  - list
+  - watch
+  - create
+  - update
+  - patch
+  - delete
+  - deletecollection
+- apiGroups:
+  - coordination.k8s.io
+  resourceNames: []
+  resources:
+  - leases
+  verbs:
+  - get
+  - list
+  - watch
+  - create
+  - update
+  - patch
+  - delete
+  - deletecollection
+- apiGroups:
+  - ""
+  resourceNames: []
+  resources:
+  - persistentvolumeclaims
+  verbs:
+  - get
+  - list
+  - watch
+  - create
+  - update
+  - patch
+  - delete
+  - deletecollection
+- apiGroups:
+  - ""
+  resourceNames: []
+  resources:
+  - pods
+  verbs:
+  - get
+  - list
+  - watch
+  - create
+  - update
+  - patch
+  - delete
+  - deletecollection
+- apiGroups:
+  - apps
+  resourceNames: []
+  resources:
+  - replicasets
+  verbs:
+  - get
+  - list
+  - watch
+  - create
+  - update
+  - patch
+  - delete
+  - deletecollection
+- apiGroups:
+  - ""
+  resourceNames: []
+  resources:
+  - secrets
+  verbs:
+  - get
+  - list
+  - watch
+  - create
+  - update
+  - patch
+  - delete
+  - deletecollection
+- apiGroups:
+  - ""
+  resourceNames: []
+  resources:
+  - services
+  verbs:
+  - get
+  - list
+  - watch
+  - create
+  - update
+  - patch
+  - delete
+  - deletecollection
+- apiGroups:
+  - apps
+  resourceNames: []
+  resources:
+  - statefulsets
+  verbs:
+  - get
+  - list
+  - watch
+  - create
+  - update
+  - patch
+  - delete
+  - deletecollection
+- apiGroups:
+  - networking.k8s.io
+  resourceNames: []
+  resources:
+  - ingresses
+  verbs:
+  - get
+  - list
+  - watch
+  - create
+  - update
+  - patch
+  - delete
+  - deletecollection
+- apiGroups:
+  - plastikube.dev
+  resourceNames: []
+  resources:
+  - models
+  verbs:
+  - get
+  - list
+  - watch
+  - create
+  - update
+  - patch
+  - delete
+  - deletecollection
+- apiGroups:
+  - ""
+  resourceNames: []
+  resources:
+  - configmaps
+  verbs:
+  - watch
+- apiGroups:
+  - batch
+  resourceNames: []
+  resources:
+  - cronjobs
+  verbs:
+  - watch
+- apiGroups:
+  - apiextensions.k8s.io
+  resourceNames: []
+  resources:
+  - customresourcedefinitions
+  verbs:
+  - watch
+- apiGroups:
+  - apps
+  resourceNames: []
+  resources:
+  - daemonsets
+  verbs:
+  - watch
+- apiGroups:
+  - apps
+  resourceNames: []
+  resources:
+  - deployments
+  verbs:
+  - watch
+- apiGroups:
+  - batch
+  resourceNames: []
+  resources:
+  - jobs
+  verbs:
+  - watch
+- apiGroups:
+  - coordination.k8s.io
+  resourceNames: []
+  resources:
+  - leases
+  verbs:
+  - watch
+- apiGroups:
+  - ""
+  resourceNames: []
+  resources:
+  - persistentvolumeclaims
+  verbs:
+  - watch
+- apiGroups:
+  - ""
+  resourceNames: []
+  resources:
+  - pods
+  verbs:
+  - watch
+- apiGroups:
+  - apps
+  resourceNames: []
+  resources:
+  - replicasets
+  verbs:
+  - watch
+- apiGroups:
+  - ""
+  resourceNames: []
+  resources:
+  - secrets
+  verbs:
+  - watch
+- apiGroups:
+  - ""
+  resourceNames: []
+  resources:
+  - services
+  verbs:
+  - watch
+- apiGroups:
+  - apps
+  resourceNames: []
+  resources:
+  - statefulsets
+  verbs:
+  - watch
+- apiGroups:
+  - networking.k8s.io
+  resourceNames: []
+  resources:
+  - ingresses
+  verbs:
+  - watch
+- apiGroups:
+  - plastikube.dev
+  resourceNames: []
+  resources:
+  - models
+  verbs:
+  - watch
+---
+{{ if .Values.serviceAccount.create }}
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: {{ include "operator.serviceAccountName" . }}
+  labels:
+  {{- include "operator.labels" . | nindent 4 }}
+  {{- with .Values.serviceAccount.annotations }}
+  annotations:
+    {{- toYaml . | nindent 4 }}
+  {{- end }}
+automountServiceAccountToken: {{ .Values.serviceAccount.automount }}
+{{- end }}
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: pk-operator-role-binding
+  labels:
+    plastikube.dev/operator: "true"
+  {{- include "operator.labels" . | nindent 4 }}
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: Role
+  name: pk-operator-role
+subjects:
+- kind: ServiceAccount
+  name: '{{ include "operator.serviceAccountName" . }}'
+  namespace: '{{ .Release.Namespace }}'
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: pk-operator-cluster-role-binding
+  labels:
+    plastikube.dev/operator: "true"
+  {{- include "operator.labels" . | nindent 4 }}
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: pk-operator-cluster-role
+subjects:
+- kind: ServiceAccount
+  name: '{{ include "operator.serviceAccountName" . }}'
+  namespace: '{{ .Release.Namespace }}'
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pk-operator
+  labels:
+    plastikube.dev/operator: "true"
+  {{- include "operator.labels" . | nindent 4 }}
+spec:
+  replicas: {{ .Values.pkOperator.replicas }}
+  revisionHistoryLimit: {{ .Values.pkOperator.revisionHistoryLimit }}
+  strategy:
+    rollingUpdate:
+      maxSurge: {{ .Values.pkOperator.strategy.rollingUpdate.maxSurge | quote }}
+      maxUnavailable: {{ .Values.pkOperator.strategy.rollingUpdate.maxUnavailable |
+        quote }}
+    type: {{ .Values.pkOperator.strategy.type | quote }}
+  selector:
+    matchLabels:
+      plastikube.dev/operator: "true"
+    {{- include "operator.selectorLabels" . | nindent 6 }}
+  template:
+    metadata:
+      labels:
+        plastikube.dev/operator: "true"
+      {{- include "operator.selectorLabels" . | nindent 8 }}
+    spec:
+      automountServiceAccountToken: true
+      containers:
+      - env:
+        - name: KUBE_IN_CLUSTER_CONFIG
+          value: {{ quote .Values.pkOperator.main.env.kubeInClusterConfig }}
+        - name: WATCH_OTHER_NAMESPACES
+          value: {{ quote .Values.pkOperator.main.env.watchOtherNamespaces }}
+        - name: HTTP_API_PORT
+          value: {{ quote .Values.pkOperator.main.env.httpApiPort }}
+        - name: NAMESPACE
+          valueFrom:
+            fieldRef:
+              fieldPath: metadata.namespace
+        - name: KUBERNETES_CLUSTER_DOMAIN
+          value: {{ quote .Values.kubernetesClusterDomain }}
+        image: {{ .Values.pkOperator.main.image.repository }}:{{ .Values.pkOperator.main.image.tag
+          | default .Chart.AppVersion }}
+        imagePullPolicy: {{ .Values.pkOperator.main.imagePullPolicy }}
+        name: main
+        ports:
+        - containerPort: 9000
+          name: http
+          protocol: TCP
+        resources: {{- toYaml .Values.pkOperator.main.resources | nindent 10 }}
+        securityContext: {{- toYaml .Values.pkOperator.main.containerSecurityContext |
+          nindent 10 }}
+      dnsPolicy: ClusterFirst
+      nodeSelector: {{- toYaml .Values.pkOperator.nodeSelector | nindent 8 }}
+      restartPolicy: Always
+      securityContext: {{- toYaml .Values.pkOperator.podSecurityContext | nindent 8 }}
+      serviceAccountName: {{ include "operator.serviceAccountName" . }}
+      setHostnameAsFQDN: false
+      shareProcessNamespace: false
+      terminationGracePeriodSeconds: 30
+      tolerations: {{- toYaml .Values.pkOperator.tolerations | nindent 8 }}
+      topologySpreadConstraints: {{- toYaml .Values.pkOperator.topologySpreadConstraints
+        | nindent 8 }}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: pk-operator-service
+  labels:
+  {{- include "operator.labels" . | nindent 4 }}
+spec:
+  type: {{ .Values.service.type }}
+  selector:
+    plastikube.dev/operator: "true"
+    {{- include "operator.selectorLabels" . | nindent 4 }}
+  ports:
+  {{- .Values.service.ports | toYaml | nindent 2 }}
