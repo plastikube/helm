@@ -1,0 +1,25 @@
+apiVersion: v1
+entries:
+  crds:
+  - apiVersion: v2
+    appVersion: 0.0.3
+    created: "2026-03-21T05:47:45.061440187Z"
+    description: The plastikube CRDs
+    digest: e0e85b2abb1bc35f7c17124355c756563f2678d925cd7f80112f10875a5a5bdf
+    name: crds
+    type: application
+    urls:
+    - https://github.com/plastikube/helm/releases/download/crds-0.0.3/crds-0.0.3.tgz
+    version: 0.0.3
+  operator:
+  - apiVersion: v2
+    appVersion: 0.0.4
+    created: "2026-03-21T05:47:45.195930655Z"
+    description: The plastikube Operator
+    digest: 36bb9b46ec69f9e822bba931e25dddfbe70b98c4881512249088a881244da577
+    name: operator
+    type: application
+    urls:
+    - https://github.com/plastikube/helm/releases/download/operator-0.0.4/operator-0.0.4.tgz
+    version: 0.0.4
+generated: "2026-03-21T05:47:45.195937608Z"
