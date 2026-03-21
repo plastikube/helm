@@ -1,0 +1,46 @@
+kubernetesClusterDomain: cluster.local
+pkOperator:
+  main:
+    containerSecurityContext:
+      allowPrivilegeEscalation: false
+      privileged: false
+      readOnlyRootFilesystem: true
+      runAsNonRoot: true
+    env:
+      httpApiPort: "9000"
+      kubeInClusterConfig: "true"
+      watchOtherNamespaces: "false"
+    image:
+      repository: ghcr.io/plastikube/operator
+      tag: latest
+    imagePullPolicy: Always
+    resources:
+      limits:
+        cpu: 1500m
+        memory: 2Gi
+      requests:
+        cpu: "1"
+        memory: 512Mi
+  nodeSelector: {}
+  podSecurityContext:
+    fsGroupChangePolicy: Always
+    runAsNonRoot: true
+  replicas: 1
+  revisionHistoryLimit: 10
+  strategy:
+    rollingUpdate:
+      maxSurge: 25%
+      maxUnavailable: 25%
+    type: RollingUpdate
+  tolerations: []
+  topologySpreadConstraints: []
+service:
+  ports:
+  - port: 9000
+    targetPort: 9000
+  type: ClusterIP
+serviceAccount:
+  annotations: {}
+  automount: true
+  create: true
+  name: ""
