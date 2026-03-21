@@ -1,10 +1,10 @@
 ---
 operator:
   description: The plastikube Operator
-  chart: 0.0.1
-  application: 0.0.1
+  chart: 0.0.2
+  application: 0.0.2
 
 crds:
   description: The plastikube CRDs
-  chart: 0.0.1
-  application: 0.0.1
+  chart: 0.0.2
+  application: 0.0.2
