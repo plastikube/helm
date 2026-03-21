@@ -202,12 +202,12 @@ function finalize_git_ci() {
 
   echo "Git push main"
   git switch main
-    
+
   # Find the newest semver tag with -build suffix
   local newest_tag
   # Get all tags, filter for semver format (X.Y.Z-build or X.Y.Z-build), sort by version, get the latest
   newest_tag=$(git tag -l | grep -E '^[0-9]+\.[0-9]+\.[0-9]+-build' | sort -V | tail -n 1)
-  
+
   if [[ -n "$newest_tag" ]]; then
     # Strip -build suffix if present
     local stripped_tag
