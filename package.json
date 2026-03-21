@@ -1,6 +1,6 @@
 {
   "name": "@plastikube/helm",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "the plastikube helm charts",
   "keywords": [],
   "engines": {
