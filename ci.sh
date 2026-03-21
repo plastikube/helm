@@ -269,7 +269,11 @@ function setup_npm_ci() {
   cd "$SCRIPT_DIR" || exit 1
   # npm install
   echo "Setup npm"
-  echo "//npm.pkg.github.com/:_authToken=${GITHUB_TOKEN}" >> "${HOME}/.npmrc"
+  cat <<EOF >> $HOME/.npmrc
+  //npm.pkg.github.com/:_authToken=${GITHUB_TOKEN}
+  @plastikube:registry=https://npm.pkg.github.com/
+  @thehonker:registry=https://npm.pkg.github.com/
+  EOF
   git switch main
   npm ci
 }
