@@ -42,7 +42,7 @@ function main() {
   else
     echo "Skipping npm ci in local environment"
   fi
-  npx tsc
+  npm run build
 
   for CHART in "${GENERATED_CHARTS[@]}"; do
     echo "Processing chart: $CHART"
