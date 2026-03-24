@@ -202,6 +202,32 @@ rules:
   - delete
   - deletecollection
 - apiGroups:
+  - plastikube.dev
+  resources:
+  - resourceprofiles
+  verbs:
+  - get
+  - list
+  - watch
+  - create
+  - update
+  - patch
+  - delete
+  - deletecollection
+- apiGroups:
+  - plastikube.dev
+  resources:
+  - routers
+  verbs:
+  - get
+  - list
+  - watch
+  - create
+  - update
+  - patch
+  - delete
+  - deletecollection
+- apiGroups:
   - ""
   resources:
   - configmaps
@@ -289,6 +315,18 @@ rules:
   - plastikube.dev
   resources:
   - models
+  verbs:
+  - watch
+- apiGroups:
+  - plastikube.dev
+  resources:
+  - resourceprofiles
+  verbs:
+  - watch
+- apiGroups:
+  - plastikube.dev
+  resources:
+  - routers
   verbs:
   - watch
 - apiGroups:
@@ -543,6 +581,34 @@ rules:
   - delete
   - deletecollection
 - apiGroups:
+  - plastikube.dev
+  resourceNames: []
+  resources:
+  - resourceprofiles
+  verbs:
+  - get
+  - list
+  - watch
+  - create
+  - update
+  - patch
+  - delete
+  - deletecollection
+- apiGroups:
+  - plastikube.dev
+  resourceNames: []
+  resources:
+  - routers
+  verbs:
+  - get
+  - list
+  - watch
+  - create
+  - update
+  - patch
+  - delete
+  - deletecollection
+- apiGroups:
   - ""
   resourceNames: []
   resources:
@@ -645,6 +711,20 @@ rules:
   resourceNames: []
   resources:
   - models
+  verbs:
+  - watch
+- apiGroups:
+  - plastikube.dev
+  resourceNames: []
+  resources:
+  - resourceprofiles
+  verbs:
+  - watch
+- apiGroups:
+  - plastikube.dev
+  resourceNames: []
+  resources:
+  - routers
   verbs:
   - watch
 ---
