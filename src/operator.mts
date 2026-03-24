@@ -63,6 +63,8 @@ export class plastikubeOperator extends cdk8s.Chart {
       cdk8splus.ApiResource.STATEFUL_SETS,
       cdk8splus.ApiResource.INGRESSES,
       new plastikube.Model.ApiResource,
+      new plastikube.ResourceProfile.ApiResource,
+      new plastikube.Router.ApiResource,
     );
 
     operatorRole.allowWatch(
@@ -81,6 +83,8 @@ export class plastikubeOperator extends cdk8s.Chart {
       cdk8splus.ApiResource.STATEFUL_SETS,
       cdk8splus.ApiResource.INGRESSES,
       new plastikube.Model.ApiResource,
+      new plastikube.ResourceProfile.ApiResource,
+      new plastikube.Router.ApiResource,
     );
 
     operatorClusterRole.allowReadWrite(
@@ -99,6 +103,8 @@ export class plastikubeOperator extends cdk8s.Chart {
       cdk8splus.ApiResource.STATEFUL_SETS,
       cdk8splus.ApiResource.INGRESSES,
       new plastikube.Model.ApiResource,
+      new plastikube.ResourceProfile.ApiResource,
+      new plastikube.Router.ApiResource,
     );
 
     operatorClusterRole.allowWatch(
@@ -117,6 +123,8 @@ export class plastikubeOperator extends cdk8s.Chart {
       cdk8splus.ApiResource.STATEFUL_SETS,
       cdk8splus.ApiResource.INGRESSES,
       new plastikube.Model.ApiResource,
+      new plastikube.ResourceProfile.ApiResource,
+      new plastikube.Router.ApiResource,
     );
 
     operatorRole.allowRead(
