@@ -805,6 +805,8 @@ spec:
       - env:
         - name: KUBE_IN_CLUSTER_CONFIG
           value: {{ quote .Values.pkOperator.main.env.kubeInClusterConfig }}
+        - name: OPERATOR_TOKEN_SECRET_REF
+          value: {{ quote .Values.pkOperator.main.env.operatorTokenSecretRef }}
         - name: WATCH_OTHER_NAMESPACES
           value: {{ quote .Values.pkOperator.main.env.watchOtherNamespaces }}
         - name: HTTP_API_PORT
