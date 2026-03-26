@@ -202,6 +202,7 @@ export class plastikubeOperator extends cdk8s.Chart {
           ],
           envVariables: {
             KUBE_IN_CLUSTER_CONFIG: cdk8splus.EnvValue.fromValue('true'),
+            OPERATOR_TOKEN_SECRET_REF: cdk8splus.EnvValue.fromValue('pk-operator-token'),
             WATCH_OTHER_NAMESPACES: cdk8splus.EnvValue.fromValue('false'),
             HTTP_API_PORT: cdk8splus.EnvValue.fromValue(httpApiPort.toString()),
             NAMESPACE: cdk8splus.EnvValue.fromFieldRef(cdk8splus.EnvFieldPaths.POD_NAMESPACE),
