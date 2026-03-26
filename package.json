@@ -1,6 +1,6 @@
 {
   "name": "@plastikube/helm",
-  "version": "0.0.11",
+  "version": "0.0.12",
   "description": "the plastikube helm charts",
   "keywords": [],
   "engines": {
@@ -13,11 +13,11 @@
   },
   "dependencies": {
     "@plastikube/crds": "^0.0.12",
-    "@typescript-eslint/eslint-plugin": "^8.57.1",
-    "@typescript-eslint/parser": "^8.57.1",
-    "cdk8s": "^2.70.51",
-    "cdk8s-plus-33": "^2.4.38",
-    "constructs": "^10.5.1",
+    "@typescript-eslint/eslint-plugin": "^8.57.2",
+    "@typescript-eslint/parser": "^8.57.2",
+    "cdk8s": "^2.70.52",
+    "cdk8s-plus-33": "^2.4.39",
+    "constructs": "^10.6.0",
     "typescript": "^5.9.3"
   },
   "devDependencies": {
